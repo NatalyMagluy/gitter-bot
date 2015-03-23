@@ -11,4 +11,3 @@ exports.getResponse = function(message) {
     var result = parseMessage(message);
     return result;
 };
-  
