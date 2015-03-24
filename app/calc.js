@@ -1,10 +1,11 @@
 var mathjs = require('mathjs'),
-    exprRegExp = /^(calc)(\s)+(\d|\+|\-|\*|\/|\(|\))+$/i;
+    exprRegExp = /^(calc)(\s)+((\d|\+|\-|\*|\/|\(|\))+)$/i;
 
-function parseMessage(msg) {
-    var expr, result;
-    if(exprRegExp.test(msg)) {
-        expr = msg.replace(/^calc /i, '');
+exports.evaluate = function (msg) {
+    var expr, result, matches;
+    matches = msg.match(exprRegExp);
+    if(matches.length && matches[3]) {
+        expr = matches[3]
         try {
             result = mathjs.eval(expr);
             return [expr, '=', result].join('');
@@ -13,9 +14,4 @@ function parseMessage(msg) {
         }
     }
     return false;
-}
-
-exports.getResponse = function(message) {
-    var result = parseMessage(message);
-    return result;
 };

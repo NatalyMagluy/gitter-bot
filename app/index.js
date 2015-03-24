@@ -14,7 +14,7 @@ gitter.rooms.join(roomName)
         var events = room.listen();
 
         events.on('message', function(message) {
-            var result = calc.getResponse(message.text);
+            var result = calc.evaluate(message.text);
             if(result !== false) {
                 room.send(result);
             }
