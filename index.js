@@ -1,8 +1,8 @@
 var Gitter = require('node-gitter'),
     calc = require('./calc'),
-    token = process.argv[3],
+    config = require('./config.json'),
     roomName = process.argv[2] || 'NatalyMagluy/gitter-bot',
-    gitter = new Gitter(token);
+    gitter = new Gitter(config.token);
 
 gitter.currentUser()
     .then(function(user) {
