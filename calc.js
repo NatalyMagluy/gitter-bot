@@ -1,5 +1,5 @@
 var mathjs = require('mathjs'),
-    exprRegExp = /^(calc)(\s)+((\d|\+|\-|\*|\/|\(|\))+)$/i;
+    exprRegExp = /^(calc)(\s)+((\d|\.|\+|\-|\*|\/|\(|\))+)$/i;
 
 exports.evaluate = function (msg) {
     var expr, result, matches;
